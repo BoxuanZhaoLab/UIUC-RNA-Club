@@ -79,9 +79,10 @@ body {
 
 /* Home page: simple text on background */
 .home {
-  padding: 34px 18px 60px;
+  width: 100%;
   max-width: 920px;
   margin: 0 auto;
+  padding: 34px clamp(18px, 6vw, 64px) 60px;
 }
 
 /* Typography: exactly 3 sizes */
@@ -91,6 +92,7 @@ body {
   letter-spacing: -0.3px;
   color: var(--il-blue);
   margin: 0 0 12px;
+  max-width: 42ch;
 }
 
 /* UIUC orange accent under titles */
@@ -109,6 +111,7 @@ body {
   line-height: 1.7;
   color: var(--text);
   margin: 0 0 12px;
+  max-width: 75ch;
 }
 
 .list {
@@ -117,6 +120,7 @@ body {
   font-size: 16px; /* SMALL */
   line-height: 1.7;
   color: var(--text);
+  max-width: 75ch;
 }
 
 .list li { margin: 6px 0; }
