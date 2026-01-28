@@ -203,10 +203,12 @@ body {
   background: var(--card);
 }
 
+
 .card img {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
+  height: 240px;        /* taller image area */
+  object-fit: contain; /* no cropping */
+  background: #f8fafc; /* clean background for empty space */
   display: block;
 }
 
