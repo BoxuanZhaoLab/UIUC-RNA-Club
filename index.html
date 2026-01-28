@@ -9,7 +9,7 @@
 </head>
 <body>
   <header class="header">
-    <div class="brand">UIUC RNA Club</div>
+    <div class="brand">UIUC RNA Club <span class="dot" aria-hidden="true"></span></div>
 
     <nav class="nav">
       <select id="navSelect" data-current="index.html" aria-label="Site navigation">
@@ -22,8 +22,18 @@
   </header>
 
   <main class="center-hero">
-    <!-- requirement #3 -->
-    Welcome to UIUC RNA Club!
+    <section class="hero-card">
+      <h1 class="hero-title">Welcome to UIUC RNA Club!</h1>
+      <div class="hero-accent" aria-hidden="true"></div>
+      <p class="hero-subtitle">
+        A student-led community at the University of Illinois Urbana-Champaign for people who are curious about RNA biology,
+        technologies, and applications—through seminars, workshops, and networking.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="events.html">See upcoming events</a>
+        <a class="btn btn-secondary" href="join.html">Join us</a>
+      </div>
+    </section>
   </main>
 </body>
 </html>
