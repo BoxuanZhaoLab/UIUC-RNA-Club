@@ -9,7 +9,7 @@
 </head>
 <body>
   <header class="header">
-    <div class="brand">UIUC RNA Club</div>
+    <div class="brand">UIUC RNA Club <span class="dot" aria-hidden="true"></span></div>
     <nav class="nav">
       <select id="navSelect" data-current="events.html" aria-label="Site navigation">
         <option value="index.html">Home</option>
@@ -23,8 +23,8 @@
   <main class="container">
     <h1>Events</h1>
 
-    <!-- requirement #4 -->
-    <table class="table">
+    <!-- Events table (click a row to expand the poster) -->
+    <table class="table" id="eventsTable" aria-label="UIUC RNA Club events">
       <thead>
         <tr>
           <th>Event date</th>
@@ -33,18 +33,65 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <!-- Event 1 -->
+        <tr class="event-row" data-target="poster-1" tabindex="0" role="button" aria-expanded="false">
           <td>2026-02-10</td>
           <td>RNA Club Kickoff + Lightning Talks</td>
           <td>Committee members</td>
         </tr>
-        <tr>
+        <tr id="poster-1" class="poster-row" hidden>
+          <td colspan="3">
+            <img class="poster" src="assets/posters/Screenshot 2026-01-28 at 11.48.13 AM.png" alt="Poster for RNA Club Kickoff + Lightning Talks" />
+          </td>
+        </tr>
+
+        <!-- Event 2 -->
+        <tr class="event-row" data-target="poster-2" tabindex="0" role="button" aria-expanded="false">
           <td>2026-03-03</td>
           <td>Guest seminar: Spatial transcriptomics &amp; RNA biology</td>
           <td>Invited speaker TBD</td>
         </tr>
+        <tr id="poster-2" class="poster-row" hidden>
+          <td colspan="3">
+            <img class="poster" src="assets/posters/Screenshot 2026-01-28 at 11.48.13 AM.png" alt="Poster for Guest seminar: Spatial transcriptomics and RNA biology" />
+          </td>
+        </tr>
       </tbody>
     </table>
+
+    <script>
+      // Keep the table look; add simple expand/collapse behavior.
+      (function () {
+        const rows = document.querySelectorAll('.event-row');
+        rows.forEach((row) => {
+          const toggle = () => {
+            const id = row.getAttribute('data-target');
+            const posterRow = document.getElementById(id);
+            if (!posterRow) return;
+
+            const isOpen = !posterRow.hasAttribute('hidden');
+            // Close if open; open if closed
+            if (isOpen) {
+              posterRow.setAttribute('hidden', '');
+              row.setAttribute('aria-expanded', 'false');
+              row.classList.remove('is-open');
+            } else {
+              posterRow.removeAttribute('hidden');
+              row.setAttribute('aria-expanded', 'true');
+              row.classList.add('is-open');
+            }
+          };
+
+          row.addEventListener('click', toggle);
+          row.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              toggle();
+            }
+          });
+        });
+      })();
+    </script>
   </main>
 </body>
 </html>

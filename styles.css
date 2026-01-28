@@ -188,6 +188,40 @@ body {
 
 .table tr:last-child td { border-bottom: 0; }
 
+/* Events table: expandable poster rows (preserve original table look) */
+
+/* Make event rows clickable */
+.event-row {
+  cursor: pointer;
+}
+
+/* Very subtle hover highlight */
+.event-row:hover {
+  background: rgba(255, 95, 5, 0.04); /* il-orange, very light */
+}
+
+/* Slightly different background when expanded */
+.event-row.is-open {
+  background: rgba(19, 41, 75, 0.03); /* il-blue, very light */
+}
+
+/* Poster row styling */
+.poster-row td {
+  padding: 14px 12px 18px;
+  background: #fff;
+}
+
+/* Poster image styling */
+.poster {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+}
+
 /* Committee grid: 4 per row on desktop */
 .grid {
   display: grid;
